@@ -71,7 +71,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          ./.sonar/scanner/dotnet-sonarscanner begin /k:"MeikelLP_quantum-core-x" /o:"meikel" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          ./.sonar/scanner/dotnet-sonarscanner begin /k:"uufukyucel_new-metin" /o:"uufukyucel" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build --configuration Release --no-restore src/QuantumCore.sln
           ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
@@ -128,7 +128,7 @@ jobs:
         uses: docker/build-push-action@v4.1.1
         with:
           context: src/
-          images: ghcr.io/meikellp/quantum-core-x/auth
+          images: ghcr.io/uufukyucel/new-metin/auth
           file: src/Executables/Auth/Dockerfile
           push: true
           tags: ${{ steps.meta-auth.outputs.tags }}
@@ -149,7 +149,7 @@ jobs:
         uses: docker/build-push-action@v4.1.1
         with:
           context: src/
-          images: ghcr.io/meikellp/quantum-core-x/migrator
+          images: ghcr.io/uufukyucel/new-metin/migrator
           file: src/Executables/Migrator/Dockerfile
           push: true
           tags: ${{ steps.meta-migrator.outputs.tags }}
